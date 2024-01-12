@@ -1,0 +1,42 @@
+nav {
+    background-color: black;
+    padding: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.10rem;
+}
+
+nav img {
+    width: 40px; 
+    height: auto;
+    margin-right: 15px;
+}
+
+nav ul {
+    position: absolute;
+    left: 85%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 40px;
+    font-size: 18px; 
+}
+
+nav li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+nav button {
+    display: inline;
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+}

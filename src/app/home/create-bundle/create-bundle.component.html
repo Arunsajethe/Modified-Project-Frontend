@@ -1,0 +1,78 @@
+<br>
+<div class="body" *ngIf="check('form1')">
+    <form action="">
+        <h3 style="text-align: center;">Create Bundle Form</h3><br>
+        <div class="input">
+            <label for="">Bundle Id</label>
+            <input type="text" name="Bundle_id" [(ngModel)]="bundle.bundle_id" placeholder="Enter the  id" style="width: 70%;" >
+            <button  type="button" class="attach-product" (click)="checkBundle()">Check</button>
+        </div>
+        
+        <div class="input">
+            <label for="">Bundle Name</label>
+            <input type="text" name="Bundle_name" [(ngModel)]="bundle.bundle_name" placeholder="Enter the name" [readonly]="!bundleIdEntered">
+        </div>
+        
+        <div class="input">
+            <label for="">Bundle category</label>
+            <select name="bundle category" [(ngModel)]="bundle.bundle_category" [disabled]="!bundleIdEntered">
+                <option value="default">---Select the Category---</option>
+                <option *ngFor="let cat of categoryList" value="{{cat}}"  >{{cat}}</option>
+            </select>
+        </div>
+        
+        <div class="input">
+            <label for="">Bundle description</label>
+            <input type="text" name="Bundle-Desp" [(ngModel)]="bundle.bundle_desp" placeholder="Enter the description" [readonly]="!bundleIdEntered">
+        </div>
+        
+        <div>
+            <button class="next" type="submit" (click)="submitForm1()" [disabled]="!bundleIdEntered">Next</button>
+        </div>
+        
+    </form>
+    
+</div>
+
+<div *ngIf="check('form2')" class="myform2">
+    <h3>Product Selection Form</h3>
+    <br>
+    <div class="table">
+        <table style="width: 95%; left:2.5%; position: absolute;">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Product Details</th>
+                    <th>Product category</th>
+                    <th>Max Locations</th>
+                    <th>Feature</th>
+                    <th style="width:2%;">Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of products">
+                    <td>{{prod.pname}}</td>
+                    <td>{{prod.desp}}</td>
+                    <td>{{prod.details}}</td>
+                    <td>{{prod.category}}</td>
+                    <td>{{prod.maxLocations}}</td>
+                    <td style="width: 20%;">
+                        <ul *ngFor="let feat of prod.feature">
+                            {{feat.fname}}
+                        </ul>
+                    </td >
+                    <td style="width: 5%"><input type="checkbox" [value]="prod" name="myprducts" (change)="addingProduct(prod)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="button">
+        <div class="buttons">
+            <button type="submit" class="previous" (click)="previousForm()">Previous</button>
+            <button type="submit" class="create" (click)="submit()">Create Bundle</button>
+        </div>
+    </div>
+    
+</div> 

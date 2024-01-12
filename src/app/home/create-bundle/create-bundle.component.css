@@ -1,0 +1,120 @@
+.body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+    margin-top: -15px;
+}
+
+.myform2{
+    margin-top: -20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 5px;
+    width: 40%;
+    border: 2.5px solid black;
+    
+}
+
+div .input {
+    margin-bottom: 10px;
+    padding: 5px;
+    margin-left: 40px ;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 85%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.attach-product {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.attach-product:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+table,th,td{
+    position: relative;
+    border: 2px solid black;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  tr{
+    width: 50px;
+  }
+
+  .table {
+    position: absolute;
+    background-color: #f2f2f2;
+
+  }
+
+  .next {
+    left:70%;
+    position: relative;
+  }
+
+  .button {
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 1rem;
+  }
+
+  .previous {
+    position: relative;
+    left: 15%;
+    border-radius: 4px;
+    border: 2px solid black;
+  }
+
+  .create {
+    position: relative;
+    left: 460%;
+    border-radius: 4px;
+  }
+
+  h3{
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  

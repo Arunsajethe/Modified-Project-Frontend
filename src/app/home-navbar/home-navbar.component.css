@@ -1,0 +1,14 @@
+nav {
+    background-color: black;
+    padding: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.15rem;
+}
+
+nav img {
+    width: 40px; /* Set the width as needed */
+    height: auto;
+    margin-right: 15px;
+}

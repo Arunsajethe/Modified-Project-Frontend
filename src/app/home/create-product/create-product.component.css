@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  color: #000;
+}
+
+.progressing-bar {
+  margin: 30px auto;
+}
+
+.progressing-bar img {
+  width: 85px;
+  margin-bottom: 20px;
+}
+
+ul {
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  width: 150px;
+  position: relative;
+  transition: all 0.5s ease; /* Add transition for smooth animation */
+}
+
+ul li .fa {
+  background: black;
+  width: 16px;
+  height: 16px;
+  color: white;
+  border-radius: 50px;
+  margin: 5px;
+}
+
+
+
+ul li .fa::after {
+  content: '';
+  background: rgb(192, 192, 192);
+  height: 5px;
+  width: 0px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 90px;
+  z-index: -1;
+  transition: all 0.5s ease; /* Add transition for smooth animation */
+}
+
+ul li:nth-child(2) .fa {
+  background: rgb(5, 5, 5);
+}
+
+ul li:nth-child(2) .fa::after {
+  background: rgb(7, 7, 7);
+}
+
+ul li:nth-child(1) .fa {
+  background: rgb(13, 13, 13);
+}
+
+ul li:nth-child(1) .fa::after {
+  background: rgb(4, 4, 4);
+}
+
+ul li:first-child .fa::after {
+  left: 150px;
+}
+
+ul li:last-child .fa::after {
+  width: 0px;
+}
+
+/* Add a class for the completed state */
+ul li.completed {
+  transform: scale(1.1); /* Increase size on completion (optional) */
+}
+
+.current-step .fa::after {
+  background: rgb(0, 0, 0); /* Change the color of the indicator line */
+}
+
+.progressing-bar .line {
+  margin-top: 1.55rem;
+  background: rgb(192, 192, 192); /* Light grey line */
+  height: 5px;
+  width: 300% ; /* Adjust the width as needed */
+  display: block;
+  position: absolute;
+  left: -70px;
+  top: 90px;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.progressing-bar .line.dark-black {
+  background: black;
+  width: 10px;
+   /* Dark black line */
+}
+
+.progressing-bar .line.feature {
+  width: 100%;
+}
+
+.progressing-bar .line.parameter {
+  width: 200%; /* Adjust the width as needed for the parameter form */
+}
+
+.progressing-bar .line.finish{
+  width: 300%;
+}
+
+.formContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.formElement {
+  width: calc(33.33% - 10px); /* 33.33% width for each form with a small gap */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+
+.wrapper {
+  width: 420px;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 10px;
+  padding: 30px 40px;
+  position: relative;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: slideInDown 1s ease-in-out;
+}
+
+.wrapper .input-box {
+  position: relative;
+  width: 90%;
+  height: auto;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  border-radius: 40px;
+  color: black;
+  padding: 20px 45px 20px 20px;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+      border-color: #3498db;
+  }
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-select {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  border-radius: 40px;
+  color: black;
+  padding: 20px 45px 20px 20px;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+      border-color: #3498db;
+  }
+}
+
+.input-box input::placeholder {
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.wrapper .btn {
+  width: 40%;
+  height: 45px;
+  background: red;
+  border: none;
+  outline: none;
+  margin: 20px 5px;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+      background: green;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+      transform: translateY(-20px);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.imgbrd{
+  padding: .8rem;
+  border: 4px solid black;
+  
+}
+
+

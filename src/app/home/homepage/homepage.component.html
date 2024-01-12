@@ -1,0 +1,45 @@
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="https://img.freepik.com/premium-vector/5g-internet-network_103588-1.jpg?w=1060" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://img.freepik.com/premium-vector/3d-base-station-receiver-telecommunication-tower-5g-polygonal-design-global-connection-information-transmitter-mobile-radio-antenna-cellular-illustration_115739-632.jpg?w=996" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="https://img.freepik.com/premium-psd/3d-icon-illustration-wireless-connection-wifi_732716-480.jpg?size=626&ext=jpg&ga=GA1.1.653841908.1703092071&semt=ais" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="sec-boxes" role="section">
+    <article class="box">
+      <h1>Create Product</h1>
+      <p>Effortlessly craft personalized product plans with our user-friendly interface, enabling you to create products tailored to your unique needs.</p>
+      <button class="button" [routerLink]="['/create']" type="submit" role="button" value="MORE">More</button>
+    </article>
+    <article class="box">
+      <h1>View Product</h1>
+      <p>Simplify your product catalog experience by seamlessly navigating our platform to view, modify and edit individual products,for better experience.</p>
+      <button class="button" [routerLink]="['/view']" type="submit" role="button" value="MORE">More</button>
+    </article>
+    <article class="box">
+      <h1>Create Bundle</h1>
+      <p>Tailor your ideal product package seamlessly with our 'Create Bundle' feature for a personalized product experience.</p>
+      <button class="button" [routerLink]="['/create-bundle']" type="submit" role="button" value="MORE">More</button>
+    </article>
+    <article class="box">
+      <h1>View Bundle</h1>
+      <p>"Effortlessly manage and view your bundled telecom services with transparency and control using this option.</p>
+      <button class="button" [routerLink]="['/view-bundle']" type="submit" role="button" value="MORE">More</button>
+    </article>
+</section>
+

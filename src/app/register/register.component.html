@@ -1,0 +1,76 @@
+
+<div class="body">
+    <div class="wrapper">
+        
+        <form #myregister="ngForm" (ngSubmit)="datasubmit()">
+            <h1>Sign Up</h1>
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Username" [(ngModel)]="register.username" #fname="ngModel" required [class.is-invalid]="fname.invalid && fname.touched" pattern="[A-Za-z\s]+" minlength="3">
+                <i class="bx bxs-user"></i>
+                <div *ngIf="fname.touched">
+                    <div *ngIf="fname.invalid">
+                        <small class="text-danger" *ngIf="fname.errors?.['required']">Name can't be empty </small>
+                        <small class="text-danger" *ngIf="fname.errors?.['minlength']"> Name should be atleast 3 characters </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="radio-input">
+                <label style="padding-right: 12px; margin-left: 0.75rem;" for="">Gender  </label>
+                <input type="radio" name="gender" value="Male" [(ngModel)]="register.gender" class="radio-input">Male
+                <input type="radio" name="gender" value="Female" [(ngModel)]="register.gender" id="">Female
+            </div>
+
+            <div class="input-box">
+                <input type="text" name="age" placeholder="Age" [(ngModel)]="register.age" #age="ngModel" required [class.is-invalid]="age.invalid && age.touched" pattern="[0-9]+" >
+                <i class="bx bxs-calendar"></i>
+                <div *ngIf="age.touched">
+                    <div *ngIf="age.invalid">
+                        <small class="text-danger" *ngIf="age.errors?.['required']">Age can't be empty </small>
+                        <small class="text-danger" *ngIf="age.errors?.['pattern']">Age should be numbers <br></small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" [(ngModel)]="register.email" #email="ngModel"  [class.is-invalid]="email.invalid && email.touched" required pattern="[A-Za-z0-9._+-]+@[A-Za-z]+[.][A-Za-z]{2,}">
+                <i class="bx bxs-envelope"></i>
+                <div *ngIf="email.touched">
+                    <div *ngIf="email.invalid">
+                        <small class="text-danger" *ngIf="email.errors?.['required']">Email Id can't be empty </small>
+                        <small class="text-danger" *ngIf="email.errors?.['pattern']">Enter the valid email Id  <br></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="tel" name="phno" placeholder="Phone no" [(ngModel)]="register.phno" #phno="ngModel" [class.is-invalid]="phno.invalid && phno.touched" required pattern="[6789][0-9]{9}">
+                <i class="bx bxs-phone"></i>
+                <div *ngIf="phno.touched">
+                    <div *ngIf="phno.invalid">
+                        <small class="text-danger" *ngIf="phno.errors?.['required']">Mobile Number can't be empty </small>
+                        <small class="text-danger" *ngIf="phno.errors?.['pattern']">Enter the correct phone number <br></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="register.password" #password="ngModel" required [class.is-invalid]="password.invalid && password.touched" pattern=".{8,}">
+                <i class="bx bxs-lock-alt"></i>
+                <div *ngIf="password.touched">
+                    <div *ngIf="password.invalid">
+                        <small class="text-danger" *ngIf="password.errors?.['required']">Password can't be empty </small>
+                        <small class="text-danger" *ngIf="password.errors?.['pattern']">password should be atleast 8 characters <br></small>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" [disabled]="myregister.form.invalid">Register</button>
+        </form>
+
+        <div class="register-link">
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+        </div>
+    </div>
+</div>
+

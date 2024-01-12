@@ -1,0 +1,40 @@
+<br>
+<div class="product-container">
+  <div class="product-card" *ngFor="let product of productArr">
+    <div class="main-div">
+      <div class="product-info">
+        <h3>{{ product.pname }}</h3>
+        <strong>Description:</strong>
+        <p style="text-align: justify;">{{ product.desp }}</p>
+        <strong>Details:</strong>
+        <p style="text-align: justify;">{{ product.details }}</p>
+        <p><strong>Category:</strong> {{ product.category }}</p>
+        <p><strong>Max Location:</strong> {{ product.maxLocations }}</p>
+      </div>
+
+      <div class="pro-spec-info">
+        <div class="features">
+          <div class="feature" *ngFor="let feature of product.feature">
+            <h4>{{ feature.fname }}</h4>
+            <ul class="parameters">
+              <li *ngFor="let parameter of feature.parameters">
+                {{ parameter.para_name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button class="details-button" type="submit" [routerLink]="['/fullproduct',product.pid]">View Details</button>
+      <div class="edit-delete-container">
+        <button type="submit" class="edit-button" [routerLink]="['/edit',product.pid]">Edit</button>
+        <button type="submit" class="delete-button" (click)="removeProduct(product.pid)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

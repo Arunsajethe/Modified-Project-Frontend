@@ -1,0 +1,155 @@
+
+<div class="progressing-bar">
+    <ul>
+      <li>
+        <img class="imgbrd" [src]="getIconUrl('Product')" alt="Product">
+        <br><i class="fa fa-check"></i>
+        <p><b>Product</b></p>
+      </li>
+      <li>
+        <div class="{{lineClass}}"></div>
+        <img class="imgbrd" [src]="getIconUrl('Feature')" alt="Feature">
+        <br><i class="fa fa-check"></i>
+        <p>Feature</p>
+      </li>
+      <li>
+        <!-- <div class="{{lineClass}}"></div> -->
+        <img class="imgbrd" [src]="getIconUrl('Parameter')" alt="Parameter">
+        <br><i class="fa fa-check"></i>
+        <p>Parameter</p>
+      </li>
+      <li>
+        <!-- <div class="{{lineClass}}"></div> -->
+        <img class="imgbrd" [src]="getIconUrl('Finish')" alt="Finish">
+        <br><i class="fa fa-check"></i>
+        <p>Finish</p>
+      </li>
+    </ul>
+  </div>
+    
+
+<div class="body">
+
+    <div class="wrapper"  *ngIf="form1()">
+        <form>
+            <h1>Add Product</h1>
+
+            <div class="input-box">
+                <label for="">Product Name</label>
+                <input type="text" name="name" [(ngModel)]="product.pname">
+            </div>
+
+            <div class="input-box">
+                <label for="">Product Description</label>
+                <input type="text" name="desp" [(ngModel)]="product.desp">
+            </div>
+
+            <div class="input-box">
+                <label for="">Product Details</label>
+                <input type="text" name="details" [(ngModel)]="product.details">
+            </div>
+
+            <div class="input-box">
+                <label for="">Product Max No. Of Locations</label>
+                <input type="number" name="maxLocation" [(ngModel)]="product.maxLocations">
+            </div>
+
+            <div class="input-box">
+                <label for="">Product Category</label>
+                <input type="text" name="category" [(ngModel)]="product.category">
+            </div>
+
+            <div class="btn-container" style="text-align: right;">
+                <button type="submit" class="btn" (click)="nextStepForm1()">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="wrapper" *ngIf="form2()" style="height: 300%; width: 70%; ">
+        <form style="padding-left: 2rem;">
+            <h1 style="margin: 0px;">Add Feature</h1>
+            
+            <div class="formContainer">
+                <div *ngFor="let feat of forms; let i=index " class="formElement" >
+                    <h3 style="padding-top: 2rem;">Feature {{i+1}}</h3>
+                    <div class="input-box">
+                        <label for="">Feature Name</label>
+                        <input type="text" name="fname {{i+1}}" [(ngModel)]="feat.fname">
+                    </div>
+        
+                    <div class="input-box">
+                        <label for="">Feature Description</label>
+                        <input type="text" name="fdesp {{i+1}}" [(ngModel)]="feat.fdesp" >
+                    </div>
+    
+                    <div class="input-box">
+                        <label for="">Feature Details</label>
+                        <input type="text" name="fdetails {{i+1}}" [(ngModel)]="feat.fdetails" >
+                    </div>
+    
+                    <button type="button" (click)="addForm(feat)">Add</button>
+                    <button type="button" (click)="removeForm(i)">Remove</button>
+    
+                </div>
+            </div>
+            
+
+            <div class="button-container">
+                <button type="submit" class="btn" (click)="previousStepForm2()">Previous</button>
+                <button type="submit" class="btn" (click)="nextStepForm2()">Next</button>
+            </div>
+            
+        </form>
+    </div>
+
+
+
+    <div class="wrapper" *ngIf="form3()"style="height: 300%; width: 70%" >
+        <form style="padding-left: 2rem;">
+            <h1>Add Parameter</h1>
+
+            <div *ngFor="let f of product.feature; let k = index">
+                
+                <h3>Parameter of {{f.fname}}</h3>
+                
+                <div class="formContainer">
+                    <div *ngFor="let pa of forms[k].parameter; let j=index " class="formElement">
+                        <div class="input-box">
+                            <label for="">Parameter Name</label>
+                            <input type="text" name="paname {{k}} {{j+1}}" [(ngModel)]="pa.pa_name">
+                        </div>
+            
+                        <div class="input-box">
+                            <label for="">Parameter Description</label>
+                            <input type="text" name="padesp {{k}} {{j+1}}" [(ngModel)]="pa.pa_desp" >
+                        </div>
+        
+                        <div class="input-box">
+                            <label for="">Parameter Details</label>
+                            <input type="text" name="fdetails {{k}} {{j+1}}" [(ngModel)]="pa.pa_details" >
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="">Parameter Type</label>
+                            <input type="text" name="type {{k}} {{j+1}}" [(ngModel)]="pa.para_type" >
+                        </div>
+        
+                        <button type="button" (click)="addParameter(k,pa)">Add</button>
+                        <button type="button" (click)="removeParameter(k,j)">Remove</button>
+        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button-container">
+                    <button type="submit" class="btn" (click)="previousStepForm3()">Previous</button>
+                    <button type="submit" class="btn" (click)="onSubmit()">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+
+</div>
+
+
